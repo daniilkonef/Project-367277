@@ -2,6 +2,9 @@ from core import find_record_in
 from core import delete_existing_contact_from
 from core import change_existing_contact_from
 
+from create_database_machine import create_database_machine
+
+
 file_database: str = "database.txt"
 
 
@@ -47,6 +50,9 @@ def add_new_contact():
 
 
 def main():
+    database_machine = create_database_machine()
+    print(database_machine.print_all_notes())
+
     print(get_virtual_database())
 
     print("ТЕЛЕФОННЫЙ СПРАВОЧНИК")
