@@ -51,9 +51,9 @@ def add_new_contact():
 
 def main():
     database_machine = create_database_machine()
-    print(database_machine.print_all_notes())
+    database_machine.print_all_notes()
 
-    print(get_virtual_database())
+    # print(get_virtual_database())
 
     print("ТЕЛЕФОННЫЙ СПРАВОЧНИК")
     print("Выберите действие: \n"
