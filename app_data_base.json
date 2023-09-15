@@ -3,8 +3,6 @@
     "note_id": 1,
     "note_title": "Заметка 1",
     "note_body": "Мыслепоток 1",
-    "created_date": "2023-09-10",
-    "created_time": "10:00",
     "changed_date": "2023-09-10",
     "changed_time": "11:00"
   },
@@ -12,8 +10,6 @@
     "note_id": 2,
     "note_title": "Заметка 2",
     "note_body": "Мыслепоток 2",
-    "created_date": "2023-09-11",
-    "created_time": "11:00",
     "changed_date": "2023-09-11",
     "changed_time": "12:09"
   },
@@ -21,8 +17,6 @@
     "note_id": 3,
     "note_title": "Заметка 3",
     "note_body": "Мыслепоток 3",
-    "created_date": "2023-09-12",
-    "created_time": "12:08",
     "changed_date": "2023-09-12",
     "changed_time": "13:19"
   }
