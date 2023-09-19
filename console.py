@@ -51,22 +51,13 @@ def add_new_contact():
 
 def main():
     database_machine = CreateDatabaseMachine()
-    database_machine.print_all_notes()
 
-    print()
-    print("вывожу заметки по id:")
-    # database_machine.print_note_by_id(3)
-    # database_machine.print_note_by_id(1)
-    # database_machine.print_note_by_id(2)
-
+    print("ЗАПИСНАЯ КНИГА")
+    print("Посмотрите последние 5 записей:")
     presenter = CreatePresenterObject(database_machine)
     presenter.Show5LastNotes()
 
-
-    # print(get_virtual_database())
-
     print()
-    print("ЗАПИСНАЯ КНИГА")
     print("Выберите действие вводом цифры: \n"
           "1 - Показать 5 последних записей; \n"
           "2 - Найти контакт; \n"
