@@ -2,8 +2,8 @@ from core import find_record_in
 from core import delete_existing_contact_from
 from core import change_existing_contact_from
 
-from createdatabasemachine import CreateDatabaseMachine
-
+from DatabaseClass import CreateDatabaseMachine
+from PresenterFrame.PresenterClass import CreatePresenterObject
 
 file_database: str = "database.txt"
 
@@ -55,16 +55,20 @@ def main():
 
     print()
     print("вывожу заметки по id:")
-    database_machine.print_note_by_id(3)
-    database_machine.print_note_by_id(1)
-    database_machine.print_note_by_id(2)
+    # database_machine.print_note_by_id(3)
+    # database_machine.print_note_by_id(1)
+    # database_machine.print_note_by_id(2)
+
+    presenter = CreatePresenterObject(database_machine)
+    presenter.Show5LastNotes()
+
 
     # print(get_virtual_database())
 
     print()
-    print("ТЕЛЕФОННЫЙ СПРАВОЧНИК")
-    print("Выберите действие: \n"
-          "1 - Показать все контакты; \n"
+    print("ЗАПИСНАЯ КНИГА")
+    print("Выберите действие вводом цифры: \n"
+          "1 - Показать 5 последних записей; \n"
           "2 - Найти контакт; \n"
           "3 - Добавить контакт: \n"
           "4 - Удалить контакт: \n"
