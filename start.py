@@ -53,23 +53,26 @@ def main():
     database_path = str("datamodel_pack/database_file.json")
     database_machine = CreateDatabaseMachine(database_path)
 
+    print()
     print("ЗАПИСНАЯ КНИГА")
-    print("Посмотрите последние 5 записей:")
+    print("Посмотрите последние 3 записи:")
     presenter = CreatePresenterObject(database_machine)
-    presenter.Show5LastNotes()
+    presenter.show_3_last_notes()
 
     print()
     print("Выберите действие вводом цифры: \n"
-          "1 - Показать 5 последних записей; \n"
+          "1 - Показать все записи; \n"
           "2 - Найти контакт; \n"
           "3 - Добавить контакт: \n"
           "4 - Удалить контакт: \n"
-          "5 - Изменить контакт: \n"
-          "Введите цифру и нажмите Enter: ")
+          "5 - Изменить контакт: \n\n"
+          ">> ", end=" ")
+
 
     user_selected_is = int(input())
+    print()
     if user_selected_is == 1:
-        show_all_contacts()
+        presenter.show_all_notes()
 
     if user_selected_is == 2:
         flag_found = find_record_in(get_virtual_database(), str(input("Введите что ищем: ")))
@@ -84,5 +87,7 @@ def main():
 
     if user_selected_is == 5:
         change_existing_contact_from(file_database)
+
+    presenter.show_empty_lines(10)
 
 main()
