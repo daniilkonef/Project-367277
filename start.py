@@ -2,8 +2,8 @@ from core import find_record_in
 from core import delete_existing_contact_from
 from core import change_existing_contact_from
 
-from DatabaseClass import CreateDatabaseMachine
-from PresenterFrame.PresenterClass import CreatePresenterObject
+from datamodel_pack.database_class import CreateDatabaseMachine
+from presenter_pack.presenter_class import CreatePresenterObject
 
 file_database: str = "database.txt"
 
