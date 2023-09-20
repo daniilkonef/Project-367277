@@ -3,8 +3,9 @@ import json
 
 class CreateDatabaseMachine:
     database_in_memory = list()
+    file_name_json = str()
 
-    def __init__(self, file_name_json:str):
+    def __init__(self, file_name_json: str):
         self.file_name_json = file_name_json
 
     def import_database_from(self, file_name_json: str):

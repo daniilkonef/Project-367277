@@ -2,6 +2,8 @@ from datamodel_pack.database_class import CreateDatabaseMachine
 
 
 class CreatePresenterObject:
+    database_machine = None
+
     def __init__(self, database_machine: CreateDatabaseMachine):
         self.database_machine = database_machine
 

@@ -50,7 +50,8 @@ def add_new_contact():
 
 
 def main():
-    database_machine = CreateDatabaseMachine("datamodel_pack/database.json")
+    database_path = str("datamodel_pack/database_file.json")
+    database_machine = CreateDatabaseMachine(database_path)
 
     print("ЗАПИСНАЯ КНИГА")
     print("Посмотрите последние 5 записей:")
