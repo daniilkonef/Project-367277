@@ -8,9 +8,11 @@ class CreatePresenterObject:
         self.database_machine = database_machine
 
     def show_3_last_notes(self):
-        self.database_machine.print_note_by_id(1)
-        self.database_machine.print_note_by_id(2)
-        self.database_machine.print_note_by_id(3)
+        # self.database_machine.print_note_by_id(1)
+        self.database_machine.print_one_note_beautyfully(self.database_machine.get_one_note_from_position(-3))
+        self.database_machine.print_one_note_beautyfully(self.database_machine.get_one_note_from_position(-2))
+        self.database_machine.print_one_note_beautyfully(self.database_machine.get_one_note_from_position(-1))
+
 
     def show_all_notes(self):
         self.database_machine.print_all_notes()

@@ -24,6 +24,14 @@ class CreateDatabaseMachine:
                 self.print_one_note_beautyfully(note_item)
 
     def print_one_note_beautyfully(self, note_item: dict):
+        self.import_database_from(self.file_name_json)
         tab = str("    ")
         print(str("id: ") + str(note_item["note_id"]) + tab + str("title: ") + note_item["note_title"] + tab + str(
             "changed: ") + note_item["changed_date"] + "  " + note_item["changed_time"])
+
+    def test(self):
+        return self.database_in_memory[-1]
+
+    def get_one_note_from_position(self, value: int):
+        self.import_database_from(self.file_name_json)
+        return self.database_in_memory[value]

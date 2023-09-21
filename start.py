@@ -59,6 +59,7 @@ def main():
     presenter = CreatePresenterObject(database_machine)
     presenter.show_3_last_notes()
 
+
     print()
     print("Выберите действие вводом цифры: \n"
           "1 - Показать все записи; \n"
