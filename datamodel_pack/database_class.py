@@ -26,8 +26,7 @@ class CreateDatabaseMachine:
     def print_one_note_beautyfully(self, note_item: dict):
         self.import_database_from(self.file_name_json)
         tab = str("    ")
-        print(str("id: ") + str(note_item["note_id"]) + tab + str("title: ") + note_item["note_title"] + tab + str(
-            "changed: ") + note_item["changed_date"] + "  " + note_item["changed_time"])
+        print(str("id: ") + str(note_item["note_id"]) + tab + str("Заголовок: ") + note_item["note_title"] + tab + str("Содержание: ") + note_item["note_body"] + tab + str("Изменено: ") + note_item["changed_date"] + "  " + note_item["changed_time"])
 
     def test(self):
         return self.database_in_memory[-1]
