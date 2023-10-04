@@ -85,13 +85,16 @@ def main():
             print(">> ", end="")
             user_gave_us_a_number = int(input())
             database_machine.print_note_by_id(user_gave_us_a_number)
+
             # flag_found = find_record_in(get_virtual_database(), str(input("Введите что ищем: ")))
             # if flag_found == False:
             #     print("По вашему запросу нет информации в базе.")
 
         if user_selected_is == 3:
             print("Введите дату в следующем формате: YYYY-MM-DD >> ", end="")
-            input()
+            user_gave_us_a_number = str(input())
+            database_machine.print_note_by_date(user_gave_us_a_number)
+
             # add_new_contact()
 
         if user_selected_is == 4:

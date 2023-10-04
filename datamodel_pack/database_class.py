@@ -23,10 +23,19 @@ class CreateDatabaseMachine:
             if note_item["note_id"] == note_id:
                 self.print_one_note_beautyfully(note_item)
 
+    def print_note_by_date(self, date_of_note: str):
+        self.import_database_from(self.file_name_json)
+        # print("Сработала заглушка для введенной даты " + str(date_of_note) )
+        for note_item in self.database_in_memory:
+            if note_item["changed_date"] == date_of_note:
+                self.print_one_note_beautyfully(note_item)
+
     def print_one_note_beautyfully(self, note_item: dict):
         self.import_database_from(self.file_name_json)
         tab = str("    ")
-        print(str("id: ") + str(note_item["note_id"]) + tab + str("Заголовок: ") + note_item["note_title"] + tab + str("Содержание: ") + note_item["note_body"] + tab + str("Изменено: ") + note_item["changed_date"] + "  " + note_item["changed_time"])
+        print(str("id: ") + str(note_item["note_id"]) + tab + str("Заголовок: ") + note_item["note_title"] + tab + str(
+            "Содержание: ") + note_item["note_body"] + tab + str("Изменено: ") + note_item["changed_date"] + "  " +
+              note_item["changed_time"])
 
     def test(self):
         return self.database_in_memory[-1]
