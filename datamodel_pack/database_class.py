@@ -23,6 +23,16 @@ class CreateDatabaseMachine:
             if note_item["note_id"] == note_id:
                 self.print_one_note_beautyfully(note_item)
 
+    def find_max_note_id(self) -> int:
+        list_of_id = list()
+        self.import_database_from(self.file_name_json)
+        for note_item in self.database_in_memory:
+            list_of_id.append(int(note_item["note_id"]))
+        print("Список id номеров: ", end="")
+        print(list_of_id)
+        print("А это максимум: " + str(max(list_of_id)))
+        return max(list_of_id)
+
     def print_note_by_date(self, date_of_note: str):
         self.import_database_from(self.file_name_json)
         # print("Сработала заглушка для введенной даты " + str(date_of_note) )
