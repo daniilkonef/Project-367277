@@ -99,7 +99,8 @@ def main():
 
         if user_selected_is == 4:
             # delete_existing_contact_from(file_database)
-            database_machine.find_max_note_id()
+            # database_machine.find_max_note_id()
+            database_machine.create_note_content()
 
         if user_selected_is == 5:
             change_existing_contact_from(file_database)
