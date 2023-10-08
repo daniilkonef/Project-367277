@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 
 class CreateDatabaseMachine:
@@ -60,23 +61,41 @@ class CreateDatabaseMachine:
         print("А это максимум: " + str(max(list_of_id)))
         return max(list_of_id)
 
-    def create_note_content(self):
+    def get_note_title_from_user(self)->str:
+        print("Введите заголовок будущей заметки >> ", end="")
+        user_gave_us_a_note_title = str(input())
+        return user_gave_us_a_note_title
+
+
+
+    def create_new_note_content(self) -> dict:
         self.import_database_from(self.file_name_json)
+        # Получение текущей даты в формате "год-месяц-день"
+        current_date = datetime.now().strftime("%Y-%m-%d")
+        # Получение текущего времени в формате "час:минута"
+        current_time = datetime.now().strftime("%H:%M")
+
         # Ваша новая заметка (замените этот словарь своими данными)
         new_note = {
-            "note_id": self.find_max_note_id() + 1,  # Генерируйте уникальный note_id
-            "note_title": "Новая заметка от ЧатДжиПиТи",
+            "note_id": int(self.find_max_note_id() + 1),  # Генерируйте уникальный note_id
+            "note_title": str(self.get_note_title_from_user()),
             "note_body": "Текст вашей заметки от ЧатДжиПиТи",
-            "changed_date": "2023-09-24 от ЧатДжиПиТи",
-            "changed_time": "14:30 от ЧатДжиПиТи"
+            "changed_date": str(current_date),
+            "changed_time": str(current_time)
         }
         database_in_memory = list(self.database_in_memory)
         database_in_memory.append(new_note)
-        print(database_in_memory)
+        return database_in_memory
 
+    def append_new_note(self, database_from_memory):
         # Запись обновленных данных в JSON-файл
         with open(self.file_name_json, "w", encoding="utf-8") as json_file:
-            json.dump(database_in_memory, json_file, indent=2, ensure_ascii=False)
+            json.dump(database_from_memory, json_file, indent=2, ensure_ascii=False)
+
+    def handler4(self):
+        database_in_memory = self.create_new_note_content()
+        self.append_new_note(database_in_memory)
+
 
 
 
