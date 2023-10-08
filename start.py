@@ -98,9 +98,6 @@ def main():
             # add_new_contact()
 
         if user_selected_is == 4:
-            # delete_existing_contact_from(file_database)
-            # database_machine.find_max_note_id()
-            # database_machine.create_note_content()
             database_machine.handler4()
 
         if user_selected_is == 5:

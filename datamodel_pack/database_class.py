@@ -24,9 +24,6 @@ class CreateDatabaseMachine:
             if note_item["note_id"] == note_id:
                 self.print_one_note_beautyfully(note_item)
 
-
-
-
     def print_note_by_date(self, date_of_note: str):
         self.import_database_from(self.file_name_json)
         # print("Сработала заглушка для введенной даты " + str(date_of_note) )
@@ -48,25 +45,26 @@ class CreateDatabaseMachine:
         self.import_database_from(self.file_name_json)
         return self.database_in_memory[value]
 
-
-
     # для выбора 4 ////////////////////////////////////////////////////////////
     def find_max_note_id(self) -> int:
         list_of_id = list()
         self.import_database_from(self.file_name_json)
         for note_item in self.database_in_memory:
             list_of_id.append(int(note_item["note_id"]))
-        print("Список id номеров: ", end="")
-        print(list_of_id)
-        print("А это максимум: " + str(max(list_of_id)))
+        # print("Список id номеров: ", end="")
+        # print(list_of_id)
+        # print("А это максимум: " + str(max(list_of_id)))
         return max(list_of_id)
 
-    def get_note_title_from_user(self)->str:
+    def get_note_title_from_user(self) -> str:
         print("Введите заголовок будущей заметки >> ", end="")
         user_gave_us_a_note_title = str(input())
         return user_gave_us_a_note_title
 
-
+    def get_note_body_from_user(self) -> str:
+        print("Введите содержание будущей заметки >> ", end="")
+        user_gave_us_a_note_body = str(input())
+        return user_gave_us_a_note_body
 
     def create_new_note_content(self) -> dict:
         self.import_database_from(self.file_name_json)
@@ -79,7 +77,7 @@ class CreateDatabaseMachine:
         new_note = {
             "note_id": int(self.find_max_note_id() + 1),  # Генерируйте уникальный note_id
             "note_title": str(self.get_note_title_from_user()),
-            "note_body": "Текст вашей заметки от ЧатДжиПиТи",
+            "note_body": str(self.get_note_body_from_user()),
             "changed_date": str(current_date),
             "changed_time": str(current_time)
         }
@@ -95,9 +93,5 @@ class CreateDatabaseMachine:
     def handler4(self):
         database_in_memory = self.create_new_note_content()
         self.append_new_note(database_in_memory)
-
-
-
-
 
     # ///////////////////////////////////////////////////////////////////////
