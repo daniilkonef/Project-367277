@@ -95,3 +95,22 @@ class CreateDatabaseMachine:
         self.append_new_note(database_in_memory)
 
     # ///////////////////////////////////////////////////////////////////////
+
+    # начало для выбора 5 ////////////////////////////////////////////////////////////
+    def handler5(self):
+        self.import_database_from(self.file_name_json)
+        database_in_memory = list(self.database_in_memory)
+
+        print("Введите номер id для удаления заметки >> ", end="")
+        user_gave_us_an_id_number = int(input())
+
+        # Поиск заметки с заданным note_id и удаление её
+        for note in database_in_memory:
+            if note["note_id"] == int(user_gave_us_an_id_number):
+                database_in_memory.remove(note)
+                break  # Выход из цикла после удаления первой заметки с указанным note_id
+        self.append_new_note(database_in_memory)
+
+
+
+    # конец для выбора 5 ////////////////////////////////////////////////////////////
