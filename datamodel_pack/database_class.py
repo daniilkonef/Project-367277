@@ -106,11 +106,9 @@ class CreateDatabaseMachine:
 
         # Поиск заметки с заданным note_id и удаление её
         for note in database_in_memory:
-            if note["note_id"] == int(user_gave_us_an_id_number):
+            if int(str(note["note_id"]).replace(" ", "")) == int(user_gave_us_an_id_number):
                 database_in_memory.remove(note)
                 break  # Выход из цикла после удаления первой заметки с указанным note_id
         self.append_new_note(database_in_memory)
-
-
 
     # конец для выбора 5 ////////////////////////////////////////////////////////////

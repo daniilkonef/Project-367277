@@ -7,13 +7,6 @@
     "changed_time": "11:00"
   },
   {
-    "note_id": 2,
-    "note_title": "Заметка 2",
-    "note_body": "Мыслепоток 2",
-    "changed_date": "2023-09-11",
-    "changed_time": "12:09"
-  },
-  {
     "note_id": 3,
     "note_title": "Заметка 3",
     "note_body": "Мыслепоток 3",
@@ -26,13 +19,6 @@
     "note_body": "Мыслепоток 4",
     "changed_date": "2023-09-13",
     "changed_time": "14:30"
-  },
-  {
-    "note_id": 5,
-    "note_title": "Заметка 5",
-    "note_body": "Мыслепоток 5",
-    "changed_date": "2023-09-14",
-    "changed_time": "15:45"
   },
   {
     "note_id": 6,
@@ -208,12 +194,5 @@
     "note_body": "АВотИсодеожанице",
     "changed_date": "2023-10-08",
     "changed_time": "20:36"
-  },
-  {
-    "note_id": 32,
-    "note_title": "Txt",
-    "note_body": "TxtTxt",
-    "changed_date": "2023-10-08",
-    "changed_time": "22:35"
   }
 ]
