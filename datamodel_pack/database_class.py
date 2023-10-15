@@ -68,12 +68,9 @@ class CreateDatabaseMachine:
 
     def create_new_note_content(self) -> dict:
         self.import_database_from(self.file_name_json)
-        # Получение текущей даты в формате "год-месяц-день"
-        current_date = datetime.now().strftime("%Y-%m-%d")
-        # Получение текущего времени в формате "час:минута"
-        current_time = datetime.now().strftime("%H:%M")
+        current_date = datetime.now().strftime("%Y-%m-%d")  # Получение текущей даты в формате "год-месяц-день"
+        current_time = datetime.now().strftime("%H:%M")  # Получение текущего времени в формате "час:минута"
 
-        # Ваша новая заметка (замените этот словарь своими данными)
         new_note = {
             "note_id": int(self.find_max_note_id() + 1),  # Генерируйте уникальный note_id
             "note_title": str(self.get_note_title_from_user()),
@@ -112,3 +109,41 @@ class CreateDatabaseMachine:
         self.append_new_note(database_in_memory)
 
     # конец для выбора 5 ////////////////////////////////////////////////////////////
+
+    # начало для выбора 6 ////////////////////////////////////////////////////////////
+    def handler6(self):
+        print("Введите номер id для изменения заметки >> ", end="")
+        user_gave_us_an_id_number = int(input())
+        self.delete_old_note_by(user_gave_us_an_id_number)
+        self.edite_old_note_content(user_gave_us_an_id_number)
+
+
+    def delete_old_note_by(self, id):
+        self.import_database_from(self.file_name_json)
+        database_in_memory = list(self.database_in_memory)
+
+        user_gave_us_an_id_number = id
+        # Поиск заметки с заданным note_id и удаление её
+        for note in database_in_memory:
+            if int(str(note["note_id"]).replace(" ", "")) == int(user_gave_us_an_id_number):
+                database_in_memory.remove(note)
+                break  # Выход из цикла после удаления первой заметки с указанным note_id
+        self.append_new_note(database_in_memory)
+
+    def edite_old_note_content(self, id):
+        self.import_database_from(self.file_name_json)
+        current_date = datetime.now().strftime("%Y-%m-%d")  # Получение текущей даты в формате "год-месяц-день"
+        current_time = datetime.now().strftime("%H:%M")  # Получение текущего времени в формате "час:минута"
+
+        new_note = {
+            "note_id": int(id),  # Генерируйте уникальный note_id
+            "note_title": str(self.get_note_title_from_user()),
+            "note_body": str(self.get_note_body_from_user()),
+            "changed_date": str(current_date),
+            "changed_time": str(current_time)
+        }
+        database_in_memory = list(self.database_in_memory)
+        database_in_memory.append(new_note)
+        self.append_new_note(database_in_memory)
+
+    # конец для выбора 6 ////////////////////////////////////////////////////////////
